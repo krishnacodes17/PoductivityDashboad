@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/svg.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Productivity-Dashboard</title>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <nav>
+        <div>
+          <h5>FlowSpace</h5>
+          <p>Organize Focus Achieve.</p>
+        </div>
+
+        <div class="navright">
+          <h5 id="currentUsername">User name</h5>
+          <a href="https://github.com/yourusername" target="_blank">
+              <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </nav>
+
+      <div class="section1">
+
+
+
+        <!-- Left Sidebar -->
+        <aside class="left">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="ri-checkbox-circle-line"></i>
+            </div>
+            <div class="logo-text">
+              <h2>Productivity</h2>
+              <h2>Dashboard</h2>
+            </div>
+          </div>
+
+          <div class="sidebar-menu" >
+            <a href="#" class="dashboardbox"active">
+              <i class="ri-home-5-fill"></i>
+              <span>Dashboard</span>
+            </li>
+
+            <a href="#" class="menu-link" data-page="todo">
+              <i class="ri-checkbox-circle-line"></i>
+              <span>Todo List</span>
+            </a>
+
+            <a href="#" class="menu-link" data-page="planner">
+              <i class="ri-calendar-line"></i>
+              <span>Daily Planner</span>
+            </a>
+
+            <!-- <a href="#" class="menu-link" data-page="goals">
+              <i class="ri-focus-3-line"></i>
+              <span>Daily Goals</span>
+            </a> -->
+
+            <a href="#" class="menu-link" data-page="pomodoro">
+              <i class="ri-timer-line"></i>
+              <span>Pomodoro Timer</span>
+            </a>
+
+            <a href="#" class="menu-link" data-page="quotes">
+              <i class="ri-chat-quote-line"></i>
+              <span>Motivation Quote</span>
+            </a>
+
+            <a href="#" class="menu-link"  data-page="weather">
+              <i class="ri-cloud-line"></i>
+              <span>Weather</span>
+            </a>
+
+            <a href="#" class="menu-link" data-page="datetime">
+              <i class="ri-time-line"></i>
+              <span>Date & Time</span>
+            </a>
+
+            
+          </div>
+          
+        </aside>
+
+
+
+
+        <!-- Right Content -->
+        <div class="right">
+          <div class="right" id="rightHideContent">
+            <section class="hero">
+              <div class="hero-left">
+                <h1 id="greetUser">Good Afternoon, Krishna!</h1>
+                <p id="greetQuots">Stay productive and keep pushing forward.</p>
+              </div>
+
+              <div class="hero-right">
+                <div class="glass-card time-card">
+                  <div class="icon">
+                    <i class="ri-time-line"></i>
+                  </div>
+                  <div>
+                    <h2 id="time_info">03:00 PM</h2>
+                    <span id="days_info">Wed, Jul 9, 2026</span>
+                  </div>
+                </div>
+
+                <div class="glass-card weather-card">
+                  <div class="icon weather">
+                    <i class="ri-sun-cloudy-line"></i>
+                  </div>
+
+                  <div>
+                    <h2>32°C</h2>
+                    <span>Bhubaneswar, India</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="stats-section">
+              <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="ri-checkbox-circle-line"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h2 id="totalTasks">0</h2>
+                    <p>Total Tasks</p>
+                </div>
+
+                </div>
+
+              <div class="stat-card">              
+                  <div class="stat-icon blue">
+                      <i class="ri-calendar-event-line"></i>
+                  </div>
+                
+                  <div class="stat-info">
+                      <h2 id="pendingTasks">0</h2>
+                      <p>Pending Tasks</p>
+                  </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="ri-focus-3-line"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h2 id="completedTasks">0</h2>
+                    <p>Completed Tasks</p>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="ri-timer-line"></i>
+                </div>
+
+                <div class="stat-info">
+                    <h2 id="completionRate">0%</h2>
+                    <p>Completion Rate</p>
+                </div>
+              </div>  
+
+              <div class="stat-card">
+                <div class="stat-icon blue">
+                  <i class="ri-calendar-event-line"></i>
+                </div>
+                <div class="stat-info">
+                  <h2 id="plannerCount">0</h2>
+                  <p>Total Planning</p>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon green">
+                  <i class="ri-focus-3-line"></i>
+                </div>
+
+                <div class="stat-info">
+                  <h2>3 / 5</h2>
+                  <p>Goals Completed</p>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon orange">
+                  <i class="ri-timer-line"></i>
+                </div>
+
+                <div class="stat-info">
+                  <h2>25:00</h2>
+                  <p>Pomodoro Ready</p>
+                </div>
+              </div>
+            </section>
+
+
+            <section class="quick-section">
+              <div class="section-heading">
+                <h2>Quick Access</h2>
+              </div>
+
+              <div class="quick-grid">
+
+                <div class="quick-card" data-page="todo" >
+                  <div class="quick-icon green">
+                    <i class="ri-checkbox-circle-fill"></i>
+                  </div>
+                  <span>Todo</span>
+                </div>
+
+                <div class="quick-card" data-page="planner" >
+                  <div class="quick-icon blue">
+                    <i class="ri-calendar-event-line"></i>
+                  </div>
+                  <span>Planner</span>
+                </div>
+
+                <!-- <div class="quick-card"  data-page="goals" id="quick_goals-page">
+                  <div class="quick-icon purple">
+                    <i class="ri-focus-3-line"></i>
+                  </div>
+                  <span>Goals</span>
+                </div> -->
+
+                <div class="quick-card"  data-page="pomodoro" id="quick_pomodoro-page">
+                  <div class="quick-icon orange">
+                    <i class="ri-timer-line"></i>
+                  </div>
+                  <span>Pomodoro</span>
+                </div>
+
+                <div class="quick-card" data-page="quotes" id="quick_quotes-page">
+                  <div class="quick-icon pink">
+                    <i class="ri-chat-quote-line"></i>
+                  </div>
+                  <span>Quotes</span>
+                </div>
+
+                <div class="quick-card"  data-page="weather" id="quick_weather-page">
+                  <div class="quick-icon sky">
+                    <i class="ri-cloud-line"></i>
+                  </div>
+                  <span>Weather</span>
+                </div>
+
+                <div class="quick-card"  data-page="datetime" id="quick_Datetime-page">
+                  <div class="quick-icon yellow">
+                    <i class="ri-time-line"></i>
+                  </div>
+                  <span>Date & Time</span>
+                </div>
+                          
+
+              </div>
+            </section>
+
+
+
+
+          </div>
+
+          
+          <!-- * quickTool Date & Time *-->
+
+
+<section id="datetime" class="datetime-page page">
+
+    <div class="page-header">
+        <button class="back-btn">
+            <i class="ri-arrow-left-line"></i>
+            Back
+        </button>
+
+        <!-- <h2>Date & Time</h2> -->
+
+    </div>
+    <div class="datetime-container">
+          
+        <div class="datetime-card">
+          <h2>Date & Time</h2>         
+            <div>
+              <div class="clock-icon">
+                <i class="ri-time-line"></i>
+            </div>
+
+            <h1 id="currentTime">
+                03:15 PM
+            </h1>
+
+            <p id="currentDate">
+                Wed, Jul 9, 2026
+            </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="todo" class="todo-page page">
+
+    <div class="page-header">
+        <button class="back-btn">
+            <i class="ri-arrow-left-line"></i>
+            Back
+        </button>
+        <h2>Todo List</h2>
+    </div>
+
+    <div class="todo-container">
+        <div class="todo-card">
+            <div class="todo-form">
+              
+                <div class="input-group">
+                    <label>Task</label>
+                    <input type="text" id="taskInput" placeholder="Enter your task">
+                </div>
+
+                <div class="input-row">
+
+                    <div class="input-group">
+                        <label>Category</label>
+                        <select id="taskCategory">
+                            <option>Study</option>
+                            <option>Work</option>
+                            <option>Personal</option>
+                            <option>Health</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Priority</label>
+                        <select id="taskPriority">
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Due Date</label>
+                        <input type="date" id="taskDate">
+                    </div>
+
+                </div>
+
+                <button id="addTaskBtn">
+                    <i class="ri-add-line"></i>
+                    Add Task
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="todo-list" id="todoList">
+
+            <!-- Dynamic Tasks -->
+
+            <div class="todo-item">
+
+                <div class="todo-left">
+
+                    <input type="checkbox">
+
+                    <div class="task-details">
+
+                        <h4>Complete Dashboard UI</h4>
+
+                        <div class="task-meta">
+
+                            <span class="category">
+                                <i class="ri-folder-line"></i>
+                                Study
+                            </span>
+
+                            <span class="priority high">
+                                🔥 High
+                            </span>
+
+                            <span class="date">
+                                <i class="ri-calendar-line"></i>
+                                09 Jul
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="task-actions">
+
+                    <button class="edit-btn">
+                        <i class="ri-edit-line"></i>
+                    </button>
+
+                    <button class="delete-btn">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="planner" class="planner-page page">
+
+    <div class="page-header">
+
+        <button class="back-btn">
+            <i class="ri-arrow-left-line"></i>
+            Back
+        </button>
+
+        <h2>Daily Planner</h2>
+
+    </div>
+
+    <div class="planner-container">
+
+        <div class="planner-card">
+
+            <div class="planner-input">
+                <input type="time"  id="plannerTime">
+                <input
+                    type="text"
+                    id="plannerTask"
+                    placeholder="Enter your plan...">
+                <button id="addPlanBtn">Add Plan</button>
+            </div>
+
+            <div class="planner-list" id="plannerList">
+
+                <div class="planner-item">
+                    <div class="planner-time">
+                        08:00 AM
+                    </div>
+                    <div class="planner-task">
+                        Morning Workout
+                    </div>
+
+                    <div class="planner-actions">
+                         <button class="edit-plan" data-id="${plan.id}">
+                             <i class="ri-edit-line"></i>
+                         </button>
+
+                          <button class="delete-plan" data-id="${plan.id}">
+                              <i class="ri-delete-bin-line"></i>
+                         </button>
+                    </div>
+
+                </div>
+               
+
+                
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section  id="goals" class="goals-page page">
+
+    <div class="page-header">
+
+        <button class="back-btn">
+            <i class="ri-arrow-left-line"></i>
+            Back
+        </button>
+
+        <h2>Daily Goals</h2>
+
+    </div>
+
+    <div class="goals-container">
+
+        <div class="goals-card">
+
+            <div class="goals-input">
+
+                <input
+                    type="text"
+                    placeholder="Enter your daily goal..."
+                >
+
+                <button>Add Goal</button>
+
+            </div>
+
+            <div class="goals-progress">
+
+                <div class="progress-info">
+
+                    <h3>Today's Progress</h3>
+
+                    <span>2 / 5 Completed</span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill"></div>
+
+                </div>
+
+            </div>
+
+            <div class="goals-list">
+
+                <div class="goal-item">
+
+                    <div class="goal-left">
+
+                        <input type="checkbox">
+
+                        <span>Complete Dashboard UI</span>
+
+                    </div>
+
+                    <i class="ri-delete-bin-line delete"></i>
+
+                </div>
+
+                <div class="goal-item">
+
+                    <div class="goal-left">
+
+                        <input checked type="checkbox">
+
+                        <span>Study JavaScript</span>
+
+                    </div>
+
+                    <i class="ri-delete-bin-line delete"></i>
+
+                </div>
+
+                <div class="goal-item">
+
+                    <div class="goal-left">
+
+                        <input type="checkbox">
+
+                        <span>Exercise for 30 Minutes</span>
+
+                    </div>
+
+                    <i class="ri-delete-bin-line delete"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="pomodoro" class="pomodoro-page page">
+
+    <div class="page-header">
+
+        <button class="back-btn">
+            <i class="ri-arrow-left-line"></i>
+            Back
+        </button>
+
+        <h2>Pomodoro Timer</h2>
+
+    </div>
+
+    <div class="pomodoro-container">
+
+        <div class="pomodoro-card">
+
+            <div class="pomodoro-header">
+
+                <h3>Focus Session</h3>
+
+                <button id="openSettings" class="settings-btn">
+                    <i class="ri-settings-3-line"></i>
+                </button>
+
+            </div>
+
+            <div class="timer-circle">
+
+                <h1 id="timer">25:00</h1>
+
+                <span id="timerMode">Focus Time</span>
+
+            </div>
+
+            <div class="pomodoro-buttons">
+
+                <button id="startBtn" class="start-btn">
+                    <i class="ri-play-fill"></i>
+                    Start
+                </button>
+
+                <button id="pauseBtn" class="pause-btn">
+                    <i class="ri-pause-fill"></i>
+                    Pause
+                </button>
+
+                <button id="resetBtn" class="reset-btn">
+                    <i class="ri-restart-line"></i>
+                    Reset
+                </button>
+
+            </div>
+
+            <div class="session-buttons">
+
+                <button class="session active" data-mode="focus">
+                    Focus
+                </button>
+
+                <button class="session" data-mode="short">
+                    Short Break
+                </button>
+
+                <button class="session" data-mode="long">
+                    Long Break
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+            <!-- SETTINGS MODAL -->
+
+
+    <div class="pomodoro-settings-modal"  id="pomodoroSettings">
+
+        <div class="settings-card">
+
+            <div class="settings-header">
+                <h3>Pomodoro Settings</h3>
+                <button id="closeSettings">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+
+            <div class="setting-row">
+                <span>Focus Time</span>
+                <div class="setting-control">
+                    <button class="minus-btn" data-target="focus">
+                        -
+                    </button>
+                    <span id="focusValue">
+                        25
+                    </span>
+                    <button class="plus-btn" data-target="focus">
+                        +
+                    </button>
+                </div>
+            </div>
+
+            <div class="setting-row"
+                <span>Short Break</span>
+                <div class="setting-control">
+                    <button class="minus-btn" data-target="short">
+                        -
+                    </button>
+                    <span id="shortValue">
+                        5
+                    </span>
+                    <button class="plus-btn" data-target="short">
+                        +
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="setting-row">
+                <span>Long Break</span>
+                <div class="setting-control">
+                    <button class="minus-btn" data-target="long">
+                        -
+                    </button>
+                    <span id="longValue">
+                        15
+                    </span>
+                    <button class="plus-btn" data-target="long">
+                        +
+                    </button>
+                </div>
+
+            </div>
+
+           
+
+        </div>
+
+    </div>
+
+</section>
+
+<section  id="quotes" class="quotes-page page">
+
+    <div class="page-header">
+
+        <button class="back-btn">
+            <i class="ri-arrow-left-line"></i>
+            Back
+        </button>
+
+        <h2>Motivational Quotes</h2>
+
+    </div>
+
+    <div class="quotes-container">
+
+        <div class="quotes-card">
+
+            <div class="quote-icon">
+                <i class="ri-double-quotes-l"></i>
+            </div>
+
+            <p id="quoteText">
+                Success doesn't come from what you do occasionally. It comes from what you do consistently.
+            </p>
+
+            <h4 id="quoteAuthor">
+                — Marie Forleo
+            </h4>
+
+            <button class="new-quote-btn">
+                <i class="ri-refresh-line"></i>
+                New Quote
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="weather" class="weather-page page">
+
+    <div class="page-header">
+
+        <button class="back-btn">
+            <i class="ri-arrow-left-line"></i>
+            Back
+        </button>
+
+        <h2>Weather</h2>
+
+    </div>
+
+    <div class="weather-container">
+
+        <div class="weather-card">
+
+            <div class="weather-top">
+
+                <div class="weather-icon">
+                    <i class="ri-sun-cloudy-fill"></i>
+                </div>
+
+                <div class="weather-info">
+
+                    <h1 id="temperature">32°C</h1>
+
+                    <h3 id="city">Surat, India</h3>
+
+                    <p id="condition">
+                        Partly Cloudy
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="weather-details">
+
+                <div class="weather-box">
+
+                    <i class="ri-water-percent-line"></i>
+
+                    <span>Humidity</span>
+
+                    <h4 id="humidity">65%</h4>
+
+                </div>
+
+                <div class="weather-box">
+
+                    <i class="ri-windy-line"></i>
+
+                    <span>Wind</span>
+
+                    <h4 id="wind">18 km/h</h4>
+
+                </div>
+
+                <div class="weather-box">
+
+                    <i class="ri-temp-hot-line"></i>
+
+                    <span>Feels Like</span>
+
+                    <h4 id="feelsLike">35°C</h4>
+
+                </div>
+
+                <div class="weather-box">
+
+                    <i class="ri-eye-line"></i>
+
+                    <span>Visibility</span>
+
+                    <h4 id="visibility">10 km</h4>
+
+                </div>
+
+            </div>
+
+            <button class="refresh-weather">
+                <i class="ri-refresh-line"></i>
+                Refresh Weather
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        </div>
+
+        
+      </div>
+    </div>
+
+    <script src="Index2.js"></script>
+  </body>
+</html>
