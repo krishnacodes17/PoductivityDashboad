@@ -39,7 +39,7 @@ form.addEventListener("submit",(e)=>{
     localStorage.setItem("currentUser",JSON.stringify(isUserExists))
 
 
-    window.location.href= "./index2.html"
+    window.location.href= "./poductivityDashboard.html"
 
 
 })
