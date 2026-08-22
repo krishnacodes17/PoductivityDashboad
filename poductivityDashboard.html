@@ -22,9 +22,14 @@
 
     <div class="wrapper">
       <nav>
-        <div>
-          <h5>FlowSpace</h5>
-          <p>Organize Focus Achieve.</p>
+        <div class="nav-left">
+          <button class="hamburger" id="menuToggle" aria-label="Toggle menu">
+            <i class="ri-menu-line"></i>
+          </button>
+          <div>
+            <h5>FlowSpace</h5>
+            <p>Organize Focus Achieve.</p>
+          </div>
         </div>
 
         <div class="navright">
@@ -34,6 +39,8 @@
           </a>
         </div>
       </nav>
+
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
       <div class="section1">
 
@@ -52,10 +59,10 @@
           </div>
 
           <div class="sidebar-menu" >
-            <a href="#" class="dashboardbox"active">
+            <a href="#" class="dashboardbox active" id="dashboardHome">
               <i class="ri-home-5-fill"></i>
               <span>Dashboard</span>
-            </li>
+            </a>
 
             <a href="#" class="menu-link" data-page="todo">
               <i class="ri-checkbox-circle-line"></i>
@@ -690,7 +697,7 @@
                 </div>
             </div>
 
-            <div class="setting-row"
+            <div class="setting-row">
                 <span>Short Break</span>
                 <div class="setting-control">
                     <button class="minus-btn" data-target="short">

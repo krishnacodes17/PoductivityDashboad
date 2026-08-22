@@ -29,10 +29,17 @@ nav {
   border-bottom: 1px solid #d8cece;
 }
 
-nav h5,p {
+nav h5,
+nav p {
   font-size: 1.5rem;
   letter-spacing: 2px;
   color: var(--ft-col);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .navright {
@@ -135,12 +142,28 @@ nav h5,p {
 }
 
 
-.dashboardbox{
+.dashboardbox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   text-decoration: none;
   color: var(--ft-col);
   padding: 15px 18px;
   border-radius: 10px;
-  border: 1px solid;
+  border: 1px solid #d8cece;
+  transition: 0.35s;
+}
+
+.dashboardbox:hover {
+  background: var(--ft-col);
+  color: var(--nav-bg);
+}
+
+.dashboardbox.active {
+  background: linear-gradient(90deg, #8b5cf6, #a855f7);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.35);
 }
 
 .menu-link,.dashboardbox i {
@@ -216,6 +239,7 @@ nav h5,p {
 
 .hero-right {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -223,6 +247,7 @@ nav h5,p {
 
 .glass-card {
   width: 280px;
+  max-width: 100%;
   height: 110px;
   padding: 20px;
   display: flex;
@@ -355,7 +380,7 @@ nav h5,p {
 
 .quick-grid{
     display:grid;
-    grid-template-columns:repeat(9,1fr);
+    grid-template-columns:repeat(6,1fr);
     gap:18px;
 }
 
@@ -715,7 +740,8 @@ nav h5,p {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-    width:500px;
+    width:100%;
+    max-width:500px;
     padding:50px;
     background:#fff;
     border-radius:28px;
@@ -926,7 +952,8 @@ nav h5,p {
 }
 
 .planner-card{
-    width:900px;
+    width:100%;
+    max-width:900px;
     background:#fff;
     border-radius:24px;
     padding:35px;
@@ -1010,7 +1037,8 @@ nav h5,p {
 }
 
 .goals-card{
-    width:900px;
+    width:100%;
+    max-width:900px;
     background:#fff;
     border-radius:24px;
     padding:35px;
@@ -1135,7 +1163,8 @@ nav h5,p {
 }
 
 .quotes-card{
-    width:850px;
+    width:100%;
+    max-width:850px;
     background:#fff;
     border-radius:24px;
     padding:45px;
@@ -1216,7 +1245,8 @@ nav h5,p {
 }
 
 .weather-card{
-    width:900px;
+    width:100%;
+    max-width:900px;
     background:#fff;
     border-radius:24px;
     padding:35px;
@@ -1552,7 +1582,7 @@ nav h5,p {
 }
 
 .settings-card{
-    width:420px;
+    width:min(420px, 92vw);
     background:#fff;
     border-radius:20px;
     padding:30px;
@@ -1636,4 +1666,385 @@ nav h5,p {
 
 .save-settings-btn:hover{
     background:#7C3AED;
+}
+
+
+/* ==============================
+   HAMBURGER + MOBILE OVERLAY
+============================== */
+
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(139, 92, 246, 0.12);
+  color: #8b5cf6;
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hamburger:hover {
+  background: rgba(139, 92, 246, 0.22);
+}
+
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.sidebar-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* ==============================
+   RESPONSIVE BREAKPOINTS
+============================== */
+
+/* ---------- Large tablets / small laptops (max-width: 1200px) ---------- */
+@media (max-width: 1200px) {
+  .stats-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .quick-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hero {
+    gap: 25px;
+  }
+}
+
+/* ---------- Tablets (max-width: 992px) ---------- */
+@media (max-width: 992px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    padding: 1rem 1.2rem;
+  }
+
+  nav h5,
+  nav p {
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+  }
+
+  /* Sidebar becomes an off-canvas drawer */
+  .left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 272px;
+    z-index: 1001;
+    transform: translateX(-105%);
+    transition: transform 0.35s ease;
+    overflow-y: auto;
+    box-shadow: none;
+  }
+
+  .left.open {
+    transform: translateX(0);
+    box-shadow: 15px 0 45px rgba(0, 0, 0, 0.22);
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .datetime-container {
+    height: auto;
+    padding: 30px 0;
+  }
+}
+
+/* ---------- Phones (max-width: 680px) ---------- */
+@media (max-width: 680px) {
+  .right {
+    padding: 0.8rem;
+  }
+
+  .hero-right {
+    flex-direction: column;
+  }
+
+  .glass-card {
+    width: 100%;
+  }
+
+  .hero-left h1 {
+    font-size: 32px;
+  }
+
+  .hero-left p {
+    font-size: 16px;
+  }
+
+  .quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-heading h2 {
+    font-size: 26px;
+  }
+
+  .page-header {
+    margin-bottom: 20px;
+  }
+
+  .page-header h2 {
+    font-size: 26px;
+  }
+
+  .back-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  /* Todo page */
+  .todo-card,
+  .datetime-card,
+  .planner-card,
+  .goals-card,
+  .quotes-card,
+  .weather-card {
+    padding: 22px;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  #addTaskBtn {
+    width: 100%;
+  }
+
+  .todo-item {
+    flex-wrap: wrap;
+    row-gap: 12px;
+    padding: 16px;
+  }
+
+  .task-actions {
+    margin-left: auto;
+  }
+
+  /* Planner page */
+  .planner-input {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .planner-item {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  .planner-task {
+    width: 100%;
+    order: 3;
+  }
+
+  .planner-actions {
+    margin-left: auto;
+  }
+
+  /* Date & Time page */
+  .datetime-card h1 {
+    font-size: 46px;
+  }
+
+  .datetime-card p {
+    font-size: 18px;
+  }
+
+  .clock-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .clock-icon i {
+    font-size: 36px;
+  }
+
+  /* Weather page */
+  .weather-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .weather-info h1 {
+    font-size: 42px;
+  }
+
+  .weather-details {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .weather-box {
+    padding: 18px;
+  }
+
+  .refresh-weather {
+    width: 100%;
+  }
+
+  /* Quotes + Goals pages */
+  .quotes-card p {
+    font-size: 20px;
+  }
+
+  .new-quote-btn,
+  .goals-input button {
+    width: 100%;
+  }
+
+  .goals-input {
+    flex-direction: column;
+  }
+
+  /* Pomodoro page */
+  .pomodoro-card {
+    padding: 22px;
+  }
+
+  .timer-circle {
+    width: 210px;
+    height: 210px;
+    border-width: 8px;
+  }
+
+  .timer-circle h1 {
+    font-size: 44px;
+  }
+
+  .pomodoro-buttons,
+  .session-buttons {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- Small phones (max-width: 480px) ---------- */
+@media (max-width: 480px) {
+  nav h5 {
+    font-size: 1.05rem;
+  }
+
+  nav p {
+    display: none;
+  }
+
+  .navright h5 {
+    font-size: 0.95rem;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .logo-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+  }
+
+  .logo-icon i {
+    font-size: 24px;
+  }
+
+  .logo-text h2 {
+    font-size: 17px;
+  }
+
+  .menu-link,
+  .dashboardbox {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .menu-link i,
+  .dashboardbox i {
+    font-size: 21px;
+  }
+
+  .menu-link span,
+  .dashboardbox span {
+    font-size: 17px;
+  }
+
+  .stat-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+
+  .stat-icon i {
+    font-size: 24px;
+  }
+
+  .stat-info h2 {
+    font-size: 24px;
+  }
+
+  .stat-info p {
+    font-size: 13px;
+  }
+
+  .quote-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .quote-icon i {
+    font-size: 30px;
+  }
+
+  .timer-circle {
+    width: 185px;
+    height: 185px;
+    border-width: 7px;
+  }
+
+  .timer-circle h1 {
+    font-size: 38px;
+  }
+
+  .settings-card {
+    padding: 20px;
+  }
+
+  .setting-row span {
+    font-size: 15px;
+  }
 }

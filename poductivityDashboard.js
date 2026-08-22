@@ -6,6 +6,32 @@ const menuLinks = document.querySelectorAll(".menu-link");
 
 const backButtons = document.querySelectorAll(".back-btn");
 
+// * mobile sidebar
+const menuToggle = document.querySelector("#menuToggle");
+const sidebar = document.querySelector(".left");
+const sidebarOverlay = document.querySelector("#sidebarOverlay");
+
+function closeMobileMenu() {
+  sidebar.classList.remove("open");
+  sidebarOverlay.classList.remove("show");
+}
+
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+  sidebarOverlay.classList.toggle("show");
+});
+
+sidebarOverlay.addEventListener("click", closeMobileMenu);
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 992) {
+    closeMobileMenu();
+  }
+});
+
+// * dashboard home link
+const dashboardHome = document.querySelector("#dashboardHome");
+
 let dashboard = document.querySelector("#rightHideContent");
 let quickCard = document.querySelectorAll(".quick-card");
 const pages = document.querySelectorAll(".page");
@@ -69,6 +95,7 @@ function openPage(pageName) {
   });
   
   selectedPage.style.display = "block";
+  closeMobileMenu();
 }
 
 
@@ -79,12 +106,18 @@ function openDashboard() {
   pages.forEach((page) => {
     page.style.display = "none";
   });
+  closeMobileMenu();
 }
 
 backButtons.forEach((button) => {
   button.addEventListener("click", () => {
     openDashboard();
   });
+});
+
+dashboardHome.addEventListener("click", (e) => {
+  e.preventDefault();
+  openDashboard();
 });
 
 

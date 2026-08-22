@@ -94,3 +94,26 @@ button:hover{
     text-decoration:none;
     font-weight:600;
 }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 520px) {
+    .signup-box {
+        width: 92%;
+        max-width: 430px;
+        padding: 28px 22px;
+        border-radius: 15px;
+    }
+
+    body {
+        align-items: flex-start;
+        padding-top: 6vh;
+    }
+
+    .logo i {
+        font-size: 34px;
+    }
+
+    .logo h1 {
+        font-size: 26px;
+    }
+}
